@@ -36,6 +36,7 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      step: { type: Number, reflect:true },
     };
   }
 
@@ -55,6 +56,21 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
       }
       h3 span {
         font-size: var(--ddd-steps-list-label-font-size, var(--ddd-font-size-s));
+        display:flex;
+        align-items: center;
+      }
+      .circle{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: var(--ddd-theme-navy, navy);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        font-size: 1.2em;
+        line-height: 50px;
       }
     `];
   }
@@ -62,9 +78,15 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <slot></slot>
-</div>`;
+    <div class="wrapper">
+      <h3>
+        <div class="circle">${this.step}</div>
+        ${this.title}
+      </h3>
+      <div class="content">
+      <slot></slot>
+      </div>
+    </div>`;
   }
 
   /**

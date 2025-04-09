@@ -21,6 +21,8 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
+    this.step = 0;
+
     this.registerLocalization({
       context: this,
       localesPath:
@@ -55,6 +57,7 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--ddd-steps-list-label-font-size, var(--ddd-font-size-s));
       }
+      
     `];
   }
 
@@ -62,7 +65,11 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="wrapper">
+      <h3><div class="circle">${this.step}</div>
+      ${this.title}</h3>
+      <div class="content">
       <slot></slot>
+      </div>
     </div>`;
   }
 
