@@ -79,6 +79,29 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
     return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
       .href;
   }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.validateChildren();
+    this.updateSteps();
+  }
+
+  validateChildren() {
+    Array.from(this.children).forEach(child => {
+      if (child.tagName.toLowerCase() !== 'ddd-steps-list-item') {
+        this.removeChild(child);
+      }
+    });
+  }
+
+  updateSteps() {
+    Array.from(this.children).forEach((child, index) => {
+      if (child.tagName.toLowerCase() === 'ddd-steps-list-item') {
+        child.step = index + 1;
+      }
+    });
+  }
+
 }
 
 globalThis.customElements.define(DddStepsList.tag, DddStepsList);
