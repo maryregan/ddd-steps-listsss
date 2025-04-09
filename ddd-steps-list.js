@@ -38,6 +38,7 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
       ...super.properties,
       title: { type: String },
       accent: { type: String, attribute: 'date-accent' },
+      subtitle: { type: String },
     };
   }
 
@@ -59,7 +60,11 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--ddd-steps-list-label-font-size, var(--ddd-font-size-s));
       }
-      
+      @media (max-width: 600px) {
+        .wrapper {
+          display: block;
+        }
+      }
     `];
   }
 
@@ -67,8 +72,9 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="wrapper" style="--accent-color: ${this.accent};">
+    <h2>${this.title}</h2>
+    <p>${this.subtitle}</p>
       <slot></slot>
-      </div>
     </div>`;
   }
 

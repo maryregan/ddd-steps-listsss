@@ -112,6 +112,19 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
       );
       z-index: 0;
       }
+      @media (max-width: 600px) {
+        .title-container {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .circle {
+          margin-right: 0;
+          margin-bottom: var(--ddd-spacing-2);
+        }
+        .content {
+          margin-left: 0;
+        }
+      }
     `];
   }
 
@@ -122,7 +135,7 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
       <div class="title-container">
         <div class="circle">${this.step}</div>
         <div class="title">${this.title}</div>
-        ${typeof this.step === "number" && this.step < 5 ? html`<div class="dotted-line"></div>` : ""}
+        ${typeof this.step === "number" && this.step < 10 ? html`<div class="dotted-line"></div>` : ""}
       </div>
       <div class="content">
       <slot></slot>
