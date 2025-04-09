@@ -65,9 +65,6 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="wrapper">
-      <h3><div class="circle">${this.step}</div>
-      ${this.title}</h3>
-      <div class="content">
       <slot></slot>
       </div>
     </div>`;

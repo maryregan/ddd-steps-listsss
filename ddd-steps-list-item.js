@@ -59,11 +59,16 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
         display:flex;
         align-items: center;
       }
+      .title-container{
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--ddd-spacing-2);
+      }
       .circle{
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background-color: var(--ddd-theme-navy, navy);
+        background-color: var(--ddd-theme-beaverBlue, #1e407c);
         color: white;
         display: flex;
         align-items: center;
@@ -72,6 +77,15 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
         font-size: 1.2em;
         line-height: 50px;
       }
+      .title{
+        font-size: var(--ddd-steps-list-label-font-size, var(--ddd-font-size-s));
+        font-weight: 600;
+        color: var(--ddd-theme-primary, #1e407c);
+      }
+      .content{
+        margin-left:var(--ddd-content-indent, 60px);
+        flex:1;
+      }
     `];
   }
 
@@ -79,10 +93,10 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="wrapper">
-      <h3>
+      <div class="title-container">
         <div class="circle">${this.step}</div>
-        ${this.title}
-      </h3>
+        <div class="title">${this.title}</div>
+      </div>
       <div class="content">
       <slot></slot>
       </div>
