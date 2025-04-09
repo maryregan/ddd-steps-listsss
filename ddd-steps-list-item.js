@@ -12,15 +12,16 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
  * @demo index.html
  * @element ddd-steps-list
  */
-export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
+export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "ddd-steps-list";
+    return "ddd-steps-list-item";
   }
 
   constructor() {
     super();
     this.title = "";
+    
     this.registerLocalization({
       context: this,
       localesPath:
@@ -61,9 +62,9 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-    <div class="wrapper">
-      <slot></slot>
-    </div>`;
+<div class="wrapper">
+  <slot></slot>
+</div>`;
   }
 
   /**
@@ -75,4 +76,4 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(DddStepsList.tag, DddStepsList);
+globalThis.customElements.define(DddStepsListItem.tag, DddStepsListItem);
