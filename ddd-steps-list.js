@@ -37,7 +37,6 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
-      accent: { type: String, attribute: 'date-accent' },
       subtitle: { type: String },
     };
   }
@@ -71,7 +70,7 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-    <div class="wrapper" style="--accent-color: ${this.accent};">
+    <div class="wrapper" >
     <h2>${this.title}</h2>
     <p>${this.subtitle}</p>
       <slot></slot>

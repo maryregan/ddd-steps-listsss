@@ -97,33 +97,37 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
       height: auto;
       margin-top: var(--ddd-spacing-2);
       }
+      
       .dotted-line {
-      position: absolute;
-      top: 50%;
-      left: 25px;
+      position: absolute; 
+      top: calc(50px); /* Adjust this value to match the circle's height */
+      left: 25px; /* Centered under the circle */
       width: 2px;
-      height: calc(100% + var(--ddd-spacing-30)); /* Increased spacing to make the line longer */
-      background: repeating-linear-gradient(
-      to bottom,
-      var(--ddd-theme-primary, #1e407c),
-      var(--ddd-theme-primary, #1e407c) 4px,
-      transparent 4px,
-      transparent 8px
-      );
-      z-index: 0;
+      height: calc(100% + 30px); /* Adjust this value to match the spacing between steps */
+      background: var(--ddd-theme-primary, #1e407c);
+        border-left: 2px dashed var(--ddd-theme-primary, #1e407c);
+        z-index: 0;
+      }
+
+      .title-container {
+      align-items: flex-start;
       }
       @media (max-width: 600px) {
-        .title-container {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .circle {
-          margin-right: 0;
-          margin-bottom: var(--ddd-spacing-2);
-        }
-        .content {
-          margin-left: 0;
-        }
+      .title-container {
+      flex-direction: column;
+      align-items: flex-start;
+      }
+      .circle {
+      margin-right: 0;
+      margin-bottom: var(--ddd-spacing-2);
+      height: var(--ddd-icon-size-l, 40px);
+      }
+      .content {
+      margin-left: 0;
+      }
+      .dotted-line {
+      top: calc(var(--ddd-icon-size-l, 40px)); /* Centered under the circle */
+      height: calc(100% + var(--ddd-spacing-2, 20px));
       }
     `];
   }
@@ -135,7 +139,7 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
       <div class="title-container">
         <div class="circle">${this.step}</div>
         <div class="title">${this.title}</div>
-        ${typeof this.step === "number" && this.step < 10 ? html`<div class="dotted-line"></div>` : ""}
+        <div class="dotted-line"></div>
       </div>
       <div class="content">
       <slot></slot>
