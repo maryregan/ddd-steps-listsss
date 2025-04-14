@@ -22,6 +22,7 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
     super();
     this.title = "";
     this.step = 0; 
+    this.dataPrimary ="";
     
     this.registerLocalization({
       context: this,
@@ -39,6 +40,7 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
       title: { type: String },
       step: { type: Number, reflect:true },
       image: { type: String },
+      dataPrimary: { type: String, reflect: true, attribute: "data-primary" },
     };
   }
 
