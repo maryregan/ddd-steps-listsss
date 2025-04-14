@@ -100,13 +100,13 @@ export class DddStepsListItem extends DDDSuper(I18NMixin(LitElement)) {
       
       .dotted-line {
       position: absolute; 
-      top: calc(50px); /* Adjust this value to match the circle's height */
-      left: 25px; /* Centered under the circle */
-      width: 2px;
-      height: calc(100% + 30px); /* Adjust this value to match the spacing between steps */
-      background: var(--ddd-theme-primary, #1e407c);
-        border-left: 2px dashed var(--ddd-theme-primary, #1e407c);
-        z-index: 0;
+      top: 50px; 
+      left: 25px; 
+      width: 10px;
+      height: 550%; 
+      border-left: 4px dashed var(--ddd-theme-primary, #1e407c);
+      z-index: 0;
+      
       }
 
       .title-container {

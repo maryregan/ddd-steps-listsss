@@ -99,6 +99,7 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
     });
   }
 
+  
   updateSteps() {
     Array.from(this.children).forEach((child, index) => {
       if (child.tagName.toLowerCase() === 'ddd-steps-list-item') {
@@ -106,6 +107,7 @@ export class DddStepsList extends DDDSuper(I18NMixin(LitElement)) {
       }
     });
   }
+  
 
 }
 
